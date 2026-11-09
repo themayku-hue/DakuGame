@@ -1,0 +1,62 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Prison Break - Escape Mission</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <h1>🔒 PRISON BREAK</h1>
+        <p>ESCAPE MISSION</p>
+      </div>
+      <div class="stats">
+        <div>LEVEL <b id="level">1</b></div>
+        <div>KEY <b id="keyStatus">0/1</b></div>
+        <div>ALERT <b id="alertStatus">SAFE</b></div>
+      </div>
+    </header>
+
+    <section class="game-panel">
+      <canvas id="game" width="800" height="520"></canvas>
+
+      <div class="message" id="message">Find the key and escape!</div>
+
+      <div class="overlay" id="overlay">
+        <div class="dialog">
+          <div class="lock-icon">🔐</div>
+          <h2 id="overlayTitle">PRISON BREAK</h2>
+          <p id="overlayText">Find the key. Avoid the guards. Unlock the door and escape.</p>
+          <button id="startBtn">START MISSION</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-panel">
+      <div class="help">
+        <span>🗝 Find key</span>
+        <span>👮 Avoid guards</span>
+        <span>🚪 Reach exit</span>
+      </div>
+
+      <div class="mobile-controls" aria-label="Movement controls">
+        <button class="empty" tabindex="-1"></button>
+        <button data-dir="up">▲</button>
+        <button class="empty" tabindex="-1"></button>
+        <button data-dir="left">◀</button>
+        <button data-dir="down">▼</button>
+        <button data-dir="right">▶</button>
+      </div>
+
+      <button id="restartBtn" class="restart">↻ RESTART</button>
+    </footer>
+    <p class="control-hint">PC: WASD / Arrow Keys &nbsp; • &nbsp; Mobile: Use direction buttons</p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

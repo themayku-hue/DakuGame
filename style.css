@@ -1,0 +1,258 @@
+ 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #10131c;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.game-shell {
+  width: min(100%, 1000px);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 21px;
+  letter-spacing: 1px;
+}
+
+.brand p {
+  margin: 5px 0 0;
+  color: #98a4b8;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.stats {
+  display: flex;
+  gap: 7px;
+}
+
+.stats div {
+  background: #20283a;
+  border: 1px solid #3a465d;
+  border-radius: 8px;
+  padding: 9px 11px;
+  font-size: 10px;
+  color: #b9c4d7;
+}
+
+.stats b {
+  color: #ffd34e;
+  margin-left: 4px;
+}
+
+#alertStatus {
+  color: #8df0a4;
+}
+
+.game-panel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 2px solid #46536b;
+  border-radius: 12px;
+  background: #252e2b;
+  box-shadow: 0 12px 35px #0006;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 800 / 520;
+  touch-action: none;
+}
+
+.message {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  padding: 8px 15px;
+  border: 1px solid #ffffff35;
+  border-radius: 20px;
+  background: #101521e8;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: #080d16d9;
+  z-index: 5;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.dialog {
+  width: min(90%, 350px);
+  padding: 25px 20px;
+  text-align: center;
+  background: #202a3c;
+  border: 1px solid #53627c;
+  border-radius: 16px;
+  box-shadow: 0 15px 50px #0009;
+}
+
+.lock-icon {
+  font-size: 36px;
+}
+
+.dialog h2 {
+  color: #ffd34e;
+  margin: 12px 0;
+}
+
+.dialog p {
+  color: #c1cada;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#startBtn {
+  margin-top: 12px;
+  padding: 13px 24px;
+  border-radius: 8px;
+  background: #e9bd48;
+  color: #171717;
+}
+
+.bottom-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.help {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  color: #c4ccda;
+  font-size: 12px;
+}
+
+.restart {
+  padding: 11px 16px;
+  border-radius: 8px;
+  background: #303c52;
+  color: white;
+}
+
+.control-hint {
+  text-align: center;
+  color: #8995a9;
+  font-size: 11px;
+  margin-top: 12px;
+}
+
+.mobile-controls {
+  display: none;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(2, 45px);
+  gap: 5px;
+  touch-action: none;
+}
+
+.mobile-controls button {
+  background: #303d53;
+  color: white;
+  border: 1px solid #667895;
+  border-radius: 9px;
+  font-size: 19px;
+  touch-action: none;
+}
+
+.mobile-controls button:active {
+  background: #8250d5;
+}
+
+.mobile-controls .empty {
+  visibility: hidden;
+}
+
+@media (max-width: 650px) {
+  body {
+    padding: 7px;
+  }
+
+  .brand h1 {
+    font-size: 16px;
+  }
+
+  .brand p {
+    font-size: 9px;
+  }
+
+  .stats {
+    gap: 4px;
+  }
+
+  .stats div {
+    padding: 7px 6px;
+    font-size: 9px;
+  }
+
+  .message {
+    top: 6px;
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+
+  .help {
+    display: none;
+  }
+
+  .bottom-panel {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mobile-controls {
+    display: grid;
+  }
+
+  .restart {
+    margin: 8px;
+  }
+}
