@@ -3,58 +3,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#090c13">
   <title>Prison Break - Escape Mission</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <main class="game-shell">
+
     <header class="topbar">
       <div class="brand">
-        <h1>🔒 PRISON BREAK</h1>
-        <p>ESCAPE MISSION</p>
+        <div class="brand-title">🔒 PRISON BREAK</div>
+        <div class="brand-subtitle">ESCAPE MISSION</div>
       </div>
-      <div class="stats">
-        <div>LEVEL <b id="level">1</b></div>
-        <div>KEY <b id="keyStatus">0/1</b></div>
-        <div>ALERT <b id="alertStatus">SAFE</b></div>
+
+      <div class="hud">
+        <div class="hud-box">
+          KEY <strong id="keyStatus">0/1</strong>
+        </div>
+        <div class="hud-box">
+          ALERT <strong id="alertStatus">SAFE</strong>
+        </div>
       </div>
     </header>
 
     <section class="game-panel">
       <canvas id="game" width="800" height="520"></canvas>
+      <div id="message" class="message">Find the key and escape!</div>
 
-      <div class="message" id="message">Find the key and escape!</div>
-
-      <div class="overlay" id="overlay">
+      <div id="overlay" class="overlay">
         <div class="dialog">
-          <div class="lock-icon">🔐</div>
           <h2 id="overlayTitle">PRISON BREAK</h2>
-          <p id="overlayText">Find the key. Avoid the guards. Unlock the door and escape.</p>
-          <button id="startBtn">START MISSION</button>
+          <p id="overlayText">Find the key, avoid guards and escape!</p>
+          <button id="startBtn">START GAME</button>
         </div>
       </div>
     </section>
 
-    <footer class="bottom-panel">
-      <div class="help">
-        <span>🗝 Find key</span>
-        <span>👮 Avoid guards</span>
-        <span>🚪 Reach exit</span>
+    <section class="bottom-panel">
+
+      <div class="mobile-controls">
+        <button type="button" class="control-btn up" data-dir="up">▲</button>
+        <button type="button" class="control-btn left" data-dir="left">◀</button>
+        <button type="button" class="control-btn down" data-dir="down">▼</button>
+        <button type="button" class="control-btn right" data-dir="right">▶</button>
       </div>
 
-      <div class="mobile-controls" aria-label="Movement controls">
-        <button class="empty" tabindex="-1"></button>
-        <button data-dir="up">▲</button>
-        <button class="empty" tabindex="-1"></button>
-        <button data-dir="left">◀</button>
-        <button data-dir="down">▼</button>
-        <button data-dir="right">▶</button>
+      <div class="action-controls">
+        <button type="button" id="hideBtn" class="action-btn">HIDE</button>
+        <button type="button" id="restartBtn" class="action-btn restart">↻ RESTART</button>
       </div>
 
-      <button id="restartBtn" class="restart">↻ RESTART</button>
-    </footer>
-    <p class="control-hint">PC: WASD / Arrow Keys &nbsp; • &nbsp; Mobile: Use direction buttons</p>
+    </section>
+
+    <div class="control-hint">
+      PC: WASD / Arrow Keys &nbsp; • &nbsp; Mobile: Direction Buttons
+    </div>
+
   </main>
 
   <script src="game.js"></script>

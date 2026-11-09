@@ -806,6 +806,7 @@ function gameLoop(timestamp) {
 
 // CONTROLS
 startBtn.addEventListener("click", startGame);
+document.getElementById("hideBtn").addEventListener("click", hidePlayer);
 
 document.getElementById("restartBtn").addEventListener("click", startGame);
 
