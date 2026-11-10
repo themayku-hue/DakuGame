@@ -4,107 +4,94 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  min-height: 100%;
   overflow: hidden;
   background: #090c13;
-  color: white;
+  color: #fff;
   font-family: Arial, sans-serif;
-  overscroll-behavior: none;
+  touch-action: manipulation;
 }
 
 body {
-  height: 100dvh;
-  padding:
-    max(5px, env(safe-area-inset-top))
-    max(7px, env(safe-area-inset-right))
-    max(5px, env(safe-area-inset-bottom))
-    max(7px, env(safe-area-inset-left));
+  overscroll-behavior: none;
 }
 
 button {
-  font: inherit;
-  touch-action: none;
+  font-family: inherit;
+  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  cursor: pointer;
 }
 
 .game-shell {
-  width: min(100%, 1100px);
-  height: 100%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  height: 100dvh;
+  margin: auto;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 0;
 }
 
 .topbar {
-  flex: 0 0 auto;
-  min-height: 66px;
+  flex-shrink: 0;
+  min-height: 62px;
+  padding: 9px 12px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 8px;
-  padding: 5px 4px;
+  background: #171d2a;
+  border: 1px solid #30394c;
+  border-radius: 12px;
 }
 
 .brand-title {
-  font-size: clamp(16px, 4vw, 25px);
+  font-size: 19px;
   font-weight: 900;
   letter-spacing: 1px;
-  white-space: nowrap;
 }
 
 .brand-subtitle {
-  margin-top: 4px;
-  color: #9298a8;
+  color: #8e9bb1;
   font-size: 10px;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
+  margin-top: 4px;
 }
 
 .hud {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .hud-box {
-  padding: 10px 9px;
-  border: 1px solid #354052;
-  border-radius: 11px;
-  background: #151d2a;
-  color: #9da8bb;
+  padding: 8px 9px;
+  background: #252e40;
+  border-radius: 8px;
+  color: #aebbd0;
   font-size: 10px;
-  white-space: nowrap;
+  font-weight: bold;
 }
 
 .hud-box strong {
-  color: #ffd44c;
+  color: #fff;
   margin-left: 3px;
-}
-
-#alertStatus {
-  color: #8df0a4;
+  font-size: 13px;
 }
 
 .game-panel {
   position: relative;
-  flex: 1 1 auto;
+  flex: 1;
   min-height: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  border: 2px solid #354052;
-  border-radius: 16px;
-  background: #151d25;
+  background: #111927;
+  border: 1px solid #30394c;
+  border-radius: 12px;
 }
 
 #game {
@@ -112,25 +99,23 @@ button {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  touch-action: none;
+  background: #101a20;
 }
 
 .message {
   position: absolute;
-  top: 12px;
+  top: 9px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
   max-width: 90%;
-  padding: 9px 15px;
-  border-radius: 30px;
-  background: #090c13dd;
-  color: #fff;
-  font-size: clamp(10px, 2.5vw, 14px);
+  padding: 7px 13px;
+  border-radius: 20px;
+  background: #111a27e8;
+  color: #e8f2ff;
+  font-size: 12px;
   text-align: center;
   pointer-events: none;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .overlay {
@@ -141,7 +126,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 15px;
-  background: #05080dd9;
+  background: #050914df;
 }
 
 .overlay.hidden {
@@ -149,177 +134,298 @@ button {
 }
 
 .dialog {
-  width: min(100%, 340px);
+  width: min(100%, 370px);
   padding: 25px 18px;
+  border: 1px solid #485571;
+  border-radius: 17px;
+  background: #192335;
   text-align: center;
-  border: 1px solid #56617a;
-  border-radius: 18px;
-  background: #182131;
-  box-shadow: 0 15px 50px #0009;
+  box-shadow: 0 15px 45px #0009;
 }
 
 .dialog h2 {
-  font-size: 21px;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+  font-size: 25px;
+  color: #f4f7ff;
 }
 
 .dialog p {
-  color: #b8c1d0;
-  font-size: 14px;
+  color: #b6c2d6;
   line-height: 1.5;
+  font-size: 14px;
 }
 
-#startBtn {
+.dialog button {
   width: 100%;
-  padding: 14px;
-  margin-top: 12px;
+  min-height: 46px;
+  margin-top: 10px;
   border: 0;
-  border-radius: 10px;
-  background: linear-gradient(120deg, #8b45e9, #d43eaa);
-  color: white;
+  border-radius: 9px;
+  background: linear-gradient(100deg, #7c3aed, #db2777);
+  color: #fff;
+  font-size: 14px;
   font-weight: 900;
-  font-size: 15px;
+}
+
+.dialog .secondary-btn {
+  background: #303d52;
+}
+
+.level-selection {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  display: none;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 15px 12px;
+  background: #090e19;
+}
+
+.level-selection.show {
+  display: flex;
+}
+
+.level-menu {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+}
+
+.level-menu h2 {
+  margin: 7px 0;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.menu-subtitle {
+  margin: 5px 0 15px;
+  color: #9aa9c1;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.coin-display {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #bd922f;
+  border-radius: 30px;
+  background: #332817;
+  color: #ffdc71;
+  font-size: 14px;
+}
+
+.coin-display strong {
+  font-size: 18px;
+}
+
+.level-info {
+  margin: 13px 0;
+  color: #aebbd0;
+  font-size: 12px;
+}
+
+.level-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding-bottom: 12px;
+}
+
+.level-card {
+  min-height: 67px;
+  padding: 7px 3px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid #47536a;
+}
+
+.level-card.unlocked {
+  background: #173d32;
+  border-color: #39c78c;
+  color: #a7ffd4;
+}
+
+.level-card.locked {
+  background: #252d3c;
+  color: #c2c9d6;
+}
+
+.level-card:active {
+  transform: scale(.96);
 }
 
 .bottom-panel {
-  flex: 0 0 auto;
+  flex-shrink: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding: 5px 8px;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 10px;
+  background: #171d2a;
+  border: 1px solid #30394c;
+  border-radius: 12px;
 }
 
 .mobile-controls {
   display: grid;
-  grid-template-columns: repeat(3, clamp(48px, 15vw, 68px));
-  grid-template-rows: repeat(2, clamp(43px, 12vw, 58px));
+  grid-template-columns: repeat(3, 52px);
+  grid-template-rows: repeat(2, 43px);
   gap: 5px;
+  justify-content: center;
 }
 
-.control-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #52617a;
-  border-radius: 13px;
-  background: linear-gradient(145deg, #253246, #151d2a);
-  color: white;
-  font-size: 22px;
+.mobile-controls button {
+  border: 1px solid #56647d;
+  border-radius: 9px;
+  background: #29364c;
+  color: #fff;
+  font-size: 19px;
   font-weight: bold;
-  box-shadow: 0 4px 0 #090d15;
   touch-action: none;
 }
 
-.control-btn:active {
-  background: #7045bd;
-  transform: translateY(3px);
-  box-shadow: none;
-}
-
-.control-btn.up {
+.mobile-controls button[data-dir="up"] {
   grid-column: 2;
   grid-row: 1;
 }
 
-.control-btn.left {
+.mobile-controls button[data-dir="left"] {
   grid-column: 1;
   grid-row: 2;
 }
 
-.control-btn.down {
+.mobile-controls button[data-dir="down"] {
   grid-column: 2;
   grid-row: 2;
 }
 
-.control-btn.right {
+.mobile-controls button[data-dir="right"] {
   grid-column: 3;
   grid-row: 2;
 }
 
+.mobile-controls button:active {
+  background: #7543d9;
+}
+
 .action-controls {
   display: flex;
-  flex-direction: column;
-  gap: 9px;
-  min-width: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
 }
 
 .action-btn {
-  min-height: 46px;
-  padding: 10px;
-  border: 1px solid #46536b;
-  border-radius: 12px;
-  background: #202b3c;
+  min-width: 65px;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #586681;
+  border-radius: 9px;
+  background: #34425a;
   color: white;
+  font-size: 11px;
   font-weight: bold;
-  font-size: 13px;
 }
 
-.action-btn:active {
-  background: #7045bd;
-}
-
-.restart {
-  background: #252d3d;
+.action-btn.restart {
+  background: #7b293b;
+  border-color: #a94359;
 }
 
 .control-hint {
-  flex: 0 0 auto;
-  padding: 3px 4px 5px;
-  color: #7f899b;
+  flex-shrink: 0;
+  padding: 2px;
+  color: #77859b;
   text-align: center;
   font-size: 10px;
 }
 
-/* Chhoti mobile screens */
-@media (max-width: 650px) {
+@media (max-width: 500px) {
   .game-shell {
+    padding: 5px;
     gap: 5px;
   }
 
   .topbar {
-    min-height: 58px;
+    min-height: 54px;
+    padding: 7px;
+  }
+
+  .brand-title {
+    font-size: 14px;
+  }
+
+  .brand-subtitle {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .hud {
+    gap: 4px;
   }
 
   .hud-box {
-    padding: 9px 6px;
+    padding: 7px 5px;
     font-size: 9px;
+  }
+
+  .hud-box strong {
+    font-size: 11px;
   }
 
   .bottom-panel {
-    padding: 4px 3px;
-  }
-
-  .action-controls {
-    min-width: 92px;
-  }
-
-  .action-btn {
-    font-size: 12px;
-  }
-
-  .control-hint {
-    font-size: 9px;
-  }
-}
-
-/* Bahut chhoti height wale phones */
-@media (max-height: 650px) {
-  .topbar {
-    min-height: 48px;
+    padding: 6px;
+    gap: 5px;
   }
 
   .mobile-controls {
     grid-template-columns: repeat(3, 46px);
     grid-template-rows: repeat(2, 39px);
+    gap: 4px;
+  }
+
+  .mobile-controls button {
+    font-size: 16px;
+  }
+
+  .action-controls {
+    gap: 4px;
   }
 
   .action-btn {
+    min-width: 55px;
     min-height: 37px;
-    padding: 7px;
+    padding: 6px;
+    font-size: 10px;
   }
 
-  .game-shell {
-    gap: 4px;
+  .level-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .level-card {
+    min-height: 57px;
+    font-size: 11px;
+  }
+}
+
+@media (max-height: 600px) {
+  .topbar {
+    min-height: 45px;
+  }
+
+  .mobile-controls {
+    grid-template-rows: repeat(2, 34px);
+  }
+
+  .bottom-panel {
+    padding: 4px;
+  }
+
+  .control-hint {
+    font-size: 9px;
   }
 }
